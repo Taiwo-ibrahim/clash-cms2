@@ -1,9 +1,12 @@
 .auth {
     height: 100vh;
-    background-color: $color-white;
+    width: 100vw !important;
+    background-color: $color-white !important;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 0 !important;
+    top: 0 !important;
 
     .login {
         width: 500px;
@@ -12,6 +15,7 @@
         align-items: center;
 
         form {
+            width: 100%;
             button {
                 width: 100%;
             }
