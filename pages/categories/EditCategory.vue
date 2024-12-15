@@ -40,7 +40,7 @@ console.log("Category ID:", categoryId);
 const fetchCategory = async () => {
   try {
     const response = await fetch(
-      `https://backend.clashstores.com/getCategory.php?id=${categoryId}`
+      `https://backend.oceansteeze.com/getCategory.php?id=${categoryId}`
     );
     const result = await response.json();
 
@@ -64,7 +64,7 @@ const submitCategory = async () => {
 
   try {
     const response = await fetch(
-      `https://backend.clashstores.com/updateCategory.php?id=${categoryId}`,
+      `https://backend.oceansteeze.com/updateCategory.php?id=${categoryId}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

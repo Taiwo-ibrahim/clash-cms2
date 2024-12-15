@@ -197,7 +197,7 @@ const description = ref("");
 const image1 = ref("");
 const images = ref(["", "", "", ""]);
 const showDeleteModal = ref(false);
-const IMAGE_BASE_URL = "https://backend.clashstores.com/products/";
+const IMAGE_BASE_URL = "https://backend.oceansteeze.com/products/";
 
 // Helper function to get full image URL
 const getImageUrl = (imagePath) => {
@@ -211,7 +211,7 @@ const getImageUrl = (imagePath) => {
 const fetchProduct = async () => {
   try {
     const response = await fetch(
-      `https://backend.clashstores.com/getProduct.php?id=${productId}`
+      `https://backend.oceansteeze.com/getProduct.php?id=${productId}`
     );
     const result = await response.json();
     if (result.status === "success") {
@@ -239,7 +239,9 @@ const fetchProduct = async () => {
 
 const fetchCategories = async () => {
   try {
-    const response = await fetch("https://backend.clashstores.com/getCategories.php");
+    const response = await fetch(
+      "https://backend.oceansteeze.com/getCategories.php"
+    );
     const result = await response.json();
     if (result.status === "success") {
       categories.value = result.data;
@@ -294,13 +296,16 @@ const updateProduct = async () => {
   };
 
   try {
-    const response = await fetch("https://backend.clashstores.com/updateProduct.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(productData),
-    });
+    const response = await fetch(
+      "https://backend.oceansteeze.com/updateProduct.php",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(productData),
+      }
+    );
 
     const result = await response.json();
     if (result.status === "success") {
@@ -321,13 +326,16 @@ const updateProduct = async () => {
 
 const deleteProduct = async () => {
   try {
-    const response = await fetch(`https://backend.clashstores.com/deleteProduct.php`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ id: productId }), // Pass the ID in the body
-    });
+    const response = await fetch(
+      `https://backend.oceansteeze.com/deleteProduct.php`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: productId }), // Pass the ID in the body
+      }
+    );
     const result = await response.json();
     if (result.status === "success") {
       router.push("/products");
