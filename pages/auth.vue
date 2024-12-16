@@ -48,13 +48,16 @@ export default {
       };
 
       try {
-        const response = await fetch("https://backend.clashstores.com/login-logic.php", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: new URLSearchParams(data),
-        });
+        const response = await fetch(
+          "https://backend.oceansteeze.com/login-logic.php",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams(data),
+          }
+        );
 
         const result = await response.json();
 

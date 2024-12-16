@@ -52,7 +52,7 @@
       <div v-for="product in filteredProducts" :key="product.id" class="col-3">
         <div class="card">
           <img
-            :src="`https://backend.clashstores.com/products/${product.image1}`"
+            :src="`https://backend.oceansteeze.com/products/${product.image1}`"
             alt="card image"
             class="card-img"
           />
@@ -89,7 +89,9 @@ const searchQuery = ref("");
 
 const fetchAllProducts = async () => {
   try {
-    const response = await fetch("https://backend.clashstores.com/getAllProducts.php");
+    const response = await fetch(
+      "https://backend.oceansteeze.com/getAllProducts.php"
+    );
     const result = await response.json();
     if (result.status === "success") {
       products.value = result.data;
@@ -105,7 +107,7 @@ const fetchAllProducts = async () => {
 const fetchProductsByCategory = async (categoryId) => {
   try {
     const response = await fetch(
-      `https://backend.clashstores.com/getProducts.php?category=${categoryId}`
+      `https://backend.oceansteeze.com/getProducts.php?category=${categoryId}`
     );
     const result = await response.json();
     if (result.status === "success") {
@@ -121,7 +123,9 @@ const fetchProductsByCategory = async (categoryId) => {
 
 const fetchCategories = async () => {
   try {
-    const response = await fetch("https://backend.clashstores.com/getCategories.php");
+    const response = await fetch(
+      "https://backend.oceansteeze.com/getCategories.php"
+    );
     const result = await response.json();
     if (result.status === "success") {
       categories.value = result.data;

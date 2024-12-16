@@ -42,13 +42,16 @@ const submitCategory = async () => {
   };
 
   try {
-    const response = await fetch("https://backend.clashstores.com/addCategory.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(categoryData),
-    });
+    const response = await fetch(
+      "https://backend.oceansteeze.com/addCategory.php",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(categoryData),
+      }
+    );
 
     const result = await response.json();
 

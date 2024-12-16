@@ -26,16 +26,19 @@ export default {
     async verifyCode() {
       try {
         const email = new URLSearchParams(window.location.search).get("email");
-        const response = await fetch("https://backend.clashstores.com/verify.php", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: new URLSearchParams({
-            email: email,
-            verification_code: this.verificationCode,
-          }),
-        });
+        const response = await fetch(
+          "https://backend.oceansteeze.com/verify.php",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams({
+              email: email,
+              verification_code: this.verificationCode,
+            }),
+          }
+        );
 
         const data = await response.json();
         this.message = data.message;

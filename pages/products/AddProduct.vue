@@ -163,7 +163,9 @@ const images = ref(["", "", "", ""]);
 
 const fetchCategories = async () => {
   try {
-    const response = await fetch("https://backend.clashstores.com/getCategories.php");
+    const response = await fetch(
+      "https://backend.oceansteeze.com/getCategories.php"
+    );
     const result = await response.json();
     if (result.status === "success") {
       categories.value = result.data;
@@ -218,13 +220,16 @@ const submitProduct = async () => {
   };
 
   try {
-    const response = await fetch("https://backend.clashstores.com/addProduct.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(productData),
-    });
+    const response = await fetch(
+      "https://backend.oceansteeze.com/addProduct.php",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(productData),
+      }
+    );
 
     const result = await response.json();
 

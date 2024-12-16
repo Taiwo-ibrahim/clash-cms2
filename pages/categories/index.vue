@@ -169,7 +169,9 @@ const fetchCategories = async () => {
     loading.value = true;
     error.value = null;
 
-    const response = await fetch("https://backend.clashstores.com/getCategories.php");
+    const response = await fetch(
+      "https://backend.oceansteeze.com/getCategories.php"
+    );
     const result = await response.json();
 
     if (result.status === "success") {
@@ -206,7 +208,7 @@ const deleteCategory = async () => {
   try {
     deleteLoading.value = true;
     const response = await fetch(
-      `https://backend.clashstores.com/deleteCategory.php?id=${categoryToDelete.value.id}`,
+      `https://backend.oceansteeze.com/deleteCategory.php?id=${categoryToDelete.value.id}`,
       { method: "DELETE" }
     );
     const result = await response.json();

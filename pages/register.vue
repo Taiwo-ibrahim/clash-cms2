@@ -47,7 +47,7 @@ export default {
 
       try {
         const response = await fetch(
-          "https://backend.clashstores.com/signup-logic.php",
+          "https://backend.oceansteeze.com/signup-logic.php",
           {
             method: "POST",
             headers: {
