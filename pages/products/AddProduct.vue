@@ -61,6 +61,60 @@
             max="2000"
           />
         </div> -->
+        <div>
+          <table>
+              <tr>
+                <th></th>
+                <th>s</th>
+                <th>m</th>
+                <th>l</th>
+                <th>xl</th>
+                <th>2xl</th>
+              </tr>
+              <tr>
+                <td >Length</td>
+                <td>25.39</td>
+                <td>26.18</td>
+                <td>26.97</td>
+                <td>27.76</td>
+                <td>28.54</td>
+              </tr>
+              <tr>
+                <td >shoulder</td>
+                <td>22.68</td>
+                <td>23.15</td>
+                <td>23.62</td>
+                <td>24.09</td>
+                <td>24.57</td>
+              </tr>
+              <tr>
+                <td >chest</td>
+                <td>25.98</td>
+                <td>26.77</td>
+                <td>27.56</td>
+                <td>28.35</td>
+                <td>29.13</td>
+              </tr>
+              <tr>
+                <td >sleeve</td>
+                <td>22.63</td>
+                <td>24.21</td>
+                <td>24.80</td>
+                <td>25.39</td>
+                <td>25.98</td>
+              </tr>
+            </table>
+        </div>
+        <div>
+          <select>
+              <option value="" disabled>Select Category</option>
+              <option>small</option>
+              <option>medium</option>
+              <option>large</option>
+              <option>2XL</option>
+              <option>3XL</option>
+          </select>
+        </div>
       </div>
 
       <div class="right col-6">
@@ -126,7 +180,7 @@
         </div>
       </div>
 
-      <div class="col-12 mt-5">
+      <div class="col-12 mt-5 description-btn">
         <label for="description">Description</label>
         <textarea
           v-model="description"
@@ -135,11 +189,12 @@
           placeholder="Describe Product"
           required
         ></textarea>
+
+        <div class="w-100 d-flex mt-4 mb-5 justify-content-end">
+          <button type="submit">Add Product</button>
+        </div>
       </div>
 
-      <div class="w-100 d-flex mt-4 mb-5 justify-content-end">
-        <button type="submit">Add Product</button>
-      </div>
     </form>
   </div>
 </template>

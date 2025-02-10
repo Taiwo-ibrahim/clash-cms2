@@ -64,7 +64,7 @@
       </div>
 
       <!-- Right column with updated image handling -->
-      <div class="right col-6">
+      <div class="right w-100 col-6 ">
         <p>Upload Product Image</p>
         <label
           for="file-upload-main"
@@ -97,8 +97,8 @@
           accept="image/*"
         />
 
-        <div class="row">
-          <div class="col-3" v-for="index in 4" :key="index">
+        <div class="row w-100 items-center justify-center m-auto">
+          <div class="col-3 small-input" v-for="index in 4" :key="index">
             <label
               :for="'file-upload-' + index"
               class="custom-file-uploads"
@@ -146,7 +146,7 @@
         ></textarea>
       </div>
 
-      <div class="w-100 d-flex mt-4 mb-5 justify-content-end">
+      <div class="w-100 d-flex mt-4 mb-5  justify-content-start">
         <button
           type="button"
           @click="showDeleteModal = true"

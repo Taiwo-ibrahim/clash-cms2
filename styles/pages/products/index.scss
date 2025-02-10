@@ -1,5 +1,42 @@
 .products {
+    @media screen and (max-width: 500px) {
+        .header {
 
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: left;
+            gap: 10px;
+            // margin-left: 2px;
+            h5 {
+                width: 100%;
+                text-align: left;
+
+            }
+            .btn-link {
+                float: left;
+                width: 100%;
+                align-items: left;
+                margin-left: 1px;
+            }
+            .products-search {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                gap: 10px;
+                .product-search-add {
+                    width: 100%;
+                    padding: 1px;
+                    margin-left: 1px;
+                    align-items: left;
+                    // justify-content: left;
+                    float: left;   
+                }
+            }
+
+        }
+        
+    }
     input {
         background: #F7F7F7;
         border: 0.5px solid #CCCCCC;
@@ -33,33 +70,81 @@
         }
     }
 
-    .cards {
-        margin-bottom: 32px;
-        
-        .card {
-            margin-top: 24px;
-    
-            .card__content {
-                padding: 8px;
-                background-color: #F7F7F7;
 
-                p:nth-of-type(1) {
-                    font-weight: 600;
+        .cards {
+            margin-bottom: 32px;
+            display: flex;;
+            gap: 20px;
+            .card-container {
+                min-width: 250px;
+                @media screen and (max-width: 500px) {
+                    // width: 170px
                 }
+                .card {
+                    margin-top: 24px;
+                    display: flex;
+                    // flex-direction: column;
+                    // width: 30%;
+                    @media (max-width: 1024px) {
+                        width: 250px;
+                    }
+                    
+                    .card__content {
+                        padding: 10px;
+                        background-color: #F7F7F7;
+                        // width: 90%;
+                        // margin-inline: auto;
+                        
+                        p:nth-of-type(1) {
+                            font-weight: 600;
+                        }
+                        
+                        h6 {
+                            font-weight: 600;
+                            color: $color-purple;
+                        }
+                        
+                        .value {
+                            color: rgba($color: #000000, $alpha: 0.6);
+                        }
+                        
+                        .card-btns {
+                            display: flex;
+                            align-items: center;
+                            // justify-content: space-between;
+                            // width: 100%;
+                            gap: 10px;
+                            margin-inline: auto;
+                            button {
+                                // border: 2px solid red;
+                                height: 35px;
+                                font-family: Satoshi;
+                                font-size: 10px;
+                                font-weight: 500;
+                                line-height: 12px;
+                                text-align: center;
+                                text-underline-position: from-font;
+                                text-decoration-skip-ink: none;
+                                padding: 20px 10px; 
+                                width: 100%;
+                                min-width: 90px;
+                                // background-color: #260021;
+                                // color: #FFFFFF;
+                                // width: 50%;
+                            }
+                            .white-btn {
+                                color: #260021;
+                                border: 1px solid #260021;
+                                background: white;
+                                font-size: 12px;
+                                padding: 20px 10px; 
+                            }
 
-                h6 {
-                    font-weight: 600;
-                    color: $color-purple;
-                }
-
-                .value {
-                    color: rgba($color: #000000, $alpha: 0.6);
-                }
-
-                button {
-                    height: 35px;
+                        }
+                        
+                    }
                 }
             }
-        }
     }
+    
 }

@@ -2,10 +2,10 @@
   <div class="products">
     <div class="header d-flex justify-content-between align-items-center">
       <h5>Products</h5>
-      <div class="d-flex align-items-center">
+      <div class="d-flex align-items-center products-search">
         <input type="text" placeholder="Search here" v-model="searchQuery" />
-        <NuxtLink :to="{ name: 'products-AddProduct' }">
-          <button class="d-flex ms-3">
+        <NuxtLink :to="{ name: 'products-AddProduct' }" class="btn-link">
+          <button class="d-flex ms-3 product-search-add">
             <p class="me-2">Add Product</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +49,7 @@
         <p>No products found</p>
       </div>
 
-      <div v-for="product in filteredProducts" :key="product.id" class="col-3">
+      <div v-for="product in filteredProducts" :key="product.id" class="col-3 card-container">
         <div class="card">
           <img
             :src="`https://backend.oceansteeze.com/products/${product.image1}`"
@@ -63,15 +63,28 @@
               {{ product.description.slice(0, 20)
               }}{{ product.description.length > 20 ? "..." : "" }}
             </p>
-            <NuxtLink
-              :to="{
-                name: 'products-EditProduct',
-                params: { id: product.id },
-                query: { id: product.id },
-              }"
-            >
-              <button class="w-100 mt-3">Edit Item</button>
-            </NuxtLink>
+
+            <div class="card-btns">
+
+              <NuxtLink
+                :to="{
+                  name: 'products-EditProduct',
+                  params: { id: product.id },
+                  query: { id: product.id },
+                }"
+                >
+                <button class=" mt-3">Edit Item</button>
+              </NuxtLink>
+                            <NuxtLink
+                :to="{
+                  name: 'products-EditProduct',
+                  params: { id: product.id },
+                  query: { id: product.id },
+                }"
+                >
+                <button class="white-btn mt-3">Remove Item</button>
+              </NuxtLink>
+            </div>
           </div>
         </div>
       </div>
