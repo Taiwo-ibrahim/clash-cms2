@@ -38,6 +38,16 @@
           required
         />
 
+        <label class="mb-2" for="colors">Colors (comma separated)</label>
+        <input type="text" id="colors" v-model="colors" required />
+        <label class="mb-2" for="sizes"
+          >Sizes (hold Ctrl/Cmd to select multiple)</label
+        >
+        <select id="sizes" v-model="selectedSizes" multiple>
+          <option v-for="size in availableSizes" :key="size" :value="size">
+            {{ size }}
+          </option>
+        </select>
         <!-- <div class="range">
           <p class="mb-4 d-block">Value Range</p>
 
@@ -64,7 +74,7 @@
       </div>
 
       <!-- Right column with updated image handling -->
-      <div class="right w-100 col-6 ">
+      <div class="right w-100 col-6">
         <p>Upload Product Image</p>
         <label
           for="file-upload-main"
@@ -146,7 +156,7 @@
         ></textarea>
       </div>
 
-      <div class="w-100 d-flex mt-4 mb-5  justify-content-start">
+      <div class="w-100 d-flex mt-4 mb-5 justify-content-start">
         <button
           type="button"
           @click="showDeleteModal = true"
@@ -190,6 +200,9 @@ const category = ref("");
 const categories = ref([]);
 const price = ref("");
 const description = ref("");
+const colors = ref("");
+const availableSizes = ["S", "M", "L", "XL", "2XL", "3XL"];
+const selectedSizes = ref([]);
 // const min = ref(100);
 // const max = ref(100);
 
@@ -220,6 +233,7 @@ const fetchProduct = async () => {
       category.value = product.category;
       price.value = parseInt(product.price);
       description.value = product.description;
+      colors.value = product.colors;
       // min.value = parseInt(product.min_range);
       // max.value = parseInt(product.max_range);
       image1.value = product.image1 || "";
@@ -229,6 +243,11 @@ const fetchProduct = async () => {
         product.image4 || "",
         product.image5 || "",
       ];
+      if (product.sizes) {
+        selectedSizes.value = product.sizes
+          .split(",")
+          .map((size) => size.trim());
+      }
     } else {
       alert("Failed to load product details.");
     }
@@ -285,6 +304,8 @@ const updateProduct = async () => {
     product_name: productName.value,
     category: category.value,
     price: parseFloat(price.value),
+    colors: colors.value,
+    sizes: selectedSizes.value.join(","),
     // min: parseFloat(min.value),
     // max: parseFloat(max.value),
     description: description.value,

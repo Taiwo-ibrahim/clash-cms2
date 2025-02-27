@@ -37,7 +37,14 @@
           min="0"
           required
         />
-
+        <label class="mb-2" for="colors">Colors (comma separated)</label>
+        <input
+          type="text"
+          id="colors"
+          v-model="colors"
+          placeholder="e.g. Red,Blue,Green,Black"
+          required
+        />
         <!-- <div class="range">
           <p class="mb-4 d-block">Value Range</p>
 
@@ -63,56 +70,65 @@
         </div> -->
         <div>
           <table>
-              <tr>
-                <th></th>
-                <th>s</th>
-                <th>m</th>
-                <th>l</th>
-                <th>xl</th>
-                <th>2xl</th>
-              </tr>
-              <tr>
-                <td >Length</td>
-                <td>25.39</td>
-                <td>26.18</td>
-                <td>26.97</td>
-                <td>27.76</td>
-                <td>28.54</td>
-              </tr>
-              <tr>
-                <td >shoulder</td>
-                <td>22.68</td>
-                <td>23.15</td>
-                <td>23.62</td>
-                <td>24.09</td>
-                <td>24.57</td>
-              </tr>
-              <tr>
-                <td >chest</td>
-                <td>25.98</td>
-                <td>26.77</td>
-                <td>27.56</td>
-                <td>28.35</td>
-                <td>29.13</td>
-              </tr>
-              <tr>
-                <td >sleeve</td>
-                <td>22.63</td>
-                <td>24.21</td>
-                <td>24.80</td>
-                <td>25.39</td>
-                <td>25.98</td>
-              </tr>
-            </table>
+            <tr>
+              <th></th>
+              <th>s</th>
+              <th>m</th>
+              <th>l</th>
+              <th>xl</th>
+              <th>2xl</th>
+            </tr>
+            <tr>
+              <td>Length</td>
+              <td>25.39</td>
+              <td>26.18</td>
+              <td>26.97</td>
+              <td>27.76</td>
+              <td>28.54</td>
+            </tr>
+            <tr>
+              <td>shoulder</td>
+              <td>22.68</td>
+              <td>23.15</td>
+              <td>23.62</td>
+              <td>24.09</td>
+              <td>24.57</td>
+            </tr>
+            <tr>
+              <td>chest</td>
+              <td>25.98</td>
+              <td>26.77</td>
+              <td>27.56</td>
+              <td>28.35</td>
+              <td>29.13</td>
+            </tr>
+            <tr>
+              <td>sleeve</td>
+              <td>22.63</td>
+              <td>24.21</td>
+              <td>24.80</td>
+              <td>25.39</td>
+              <td>25.98</td>
+            </tr>
+          </table>
         </div>
+        <label class="mb-2" for="sizes"
+          >Sizes (hold Ctrl/Cmd to select multiple)</label
+        >
+        <select id="sizes" v-model="selectedSizes" multiple>
+          <option v-for="size in availableSizes" :key="size" :value="size">
+            {{ size }}
+          </option>
+        </select>
         <div>
           <select>
-              <option value="" disabled>Select Category</option>
-              <option>small</option>
-              <option>medium</option>
-              <option>large</option>
-              <option>2XL</option>
-              <option>3XL</option>
+            <option value="" disabled>Select Category</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+            <option>2XL</option>
+            <option>3XL</option>
           </select>
         </div>
       </div>
@@ -194,7 +210,6 @@
           <button type="submit">Add Product</button>
         </div>
       </div>
-
     </form>
   </div>
 </template>
@@ -209,6 +224,9 @@ const category = ref("");
 const categories = ref([]);
 const price = ref("");
 const description = ref("");
+const colors = ref("");
+const availableSizes = ["S", "M", "L", "XL", "2XL", "3XL"];
+const selectedSizes = ref([]); // For multi-select dropdown
 // const min = ref(100);
 // const max = ref(100);
 
@@ -263,11 +281,14 @@ const submitProduct = async () => {
     alert("Please fill in all required fields");
     return;
   }
+  const sizesString = selectedSizes.value.join(",");
 
   const productData = {
     product_name: productName.value,
     category: category.value,
     price: parseFloat(price.value),
+    colors: colors.value.trim(),
+    sizes: sizesString,
     // min: parseFloat(min.value),
     // max: parseFloat(max.value),
     description: description.value,
@@ -306,6 +327,8 @@ const resetForm = () => {
   category.value = "";
   price.value = "";
   description.value = "";
+  colors.value = "";
+  selectedSizes.value = [];
   // min.value = 100;
   // max.value = 100;
   image1.value = "";
