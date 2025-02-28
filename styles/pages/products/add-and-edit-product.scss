@@ -15,8 +15,14 @@
 
 
     form {
+        // .form__container {
+        //     display: flex;
+        //     align-items: center;
+        //     // border: 10px solid green;
+        // }
         margin-top: 32px;
         display: flex;
+        justify-content: space-between;
         @media screen and (max-width: 768px) {
             flex-direction: column;
             width: 100%;
@@ -73,9 +79,9 @@
         .right {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            // justify-content: space-between;
             gap: 10px;
-            width: 100%;
+            width: 45%;
             
             input[type="file"] {
                 display: none;
@@ -86,7 +92,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 100%;
+                // width: 100%;
                 height: 250px;
                 border-radius: 16px;
                 border-style: dashed;
@@ -114,7 +120,7 @@
             }
         
              @media screen and (max-width: 768px) {
-                width: 90%;
+                width: 95%;
                 margin-inline: auto;
             }
         }

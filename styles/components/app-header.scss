@@ -1,6 +1,9 @@
 .relative {
     position: relative;
-    border: 1px solid red;
+    // border: 1px solid red;
+    @media screen and (max-width: 768px) {
+        position: static;
+    }
 }
 nav {
     height: 80px;
@@ -11,7 +14,7 @@ nav {
     right: 0;
     box-shadow: 0 0 10px #0000000a;
     background-color: #FFF;
-    border: 1px solid red;
+    // border: 1px solid red;
     z-index: z('nav');
 
     div.nav { 
@@ -21,6 +24,9 @@ nav {
         height: 100%;
         padding-left: 3rem;
         padding-right: 3rem;
+        @media screen and (max-width: 768px) {
+            padding-right: 0px;
+        }
 
         .right {
             display: flex;

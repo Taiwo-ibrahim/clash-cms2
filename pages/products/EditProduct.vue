@@ -6,7 +6,7 @@
 
     <form
       @submit.prevent="updateProduct"
-      class="row"
+      class="row form--container"
       enctype="multipart/form-data"
     >
       <div class="left col-6">
@@ -43,11 +43,19 @@
         <label class="mb-2" for="sizes"
           >Sizes (hold Ctrl/Cmd to select multiple)</label
         >
-        <select id="sizes" v-model="selectedSizes" multiple>
+        <select id="sizes" v-model="selectedSizes" multiple required>
+          <option value="" disabled>Select size</option>
           <option v-for="size in availableSizes" :key="size" :value="size">
             {{ size }}
           </option>
         </select>
+         <!-- <label class="mb-2" for="category">Category</label>
+        <select id="category" v-model="category" required>
+          <option value="" disabled>Select Category</option>
+          <option v-for="cat in categories" :key="cat.id" :value="cat.id">
+            {{ cat.name }}
+          </option>
+        </select> -->
         <!-- <div class="range">
           <p class="mb-4 d-block">Value Range</p>
 
@@ -74,7 +82,7 @@
       </div>
 
       <!-- Right column with updated image handling -->
-      <div class="right w-100 col-6">
+      <div class="right  col-6">
         <p>Upload Product Image</p>
         <label
           for="file-upload-main"
@@ -378,7 +386,15 @@ const deleteProduct = async () => {
   margin-right: 10px;
   cursor: pointer;
 }
-
+.form--container {
+  display: flex;
+  align-items: center;
+}
+.left, 
+.right {
+  width: 45%;
+  display: flex;
+}
 .modal-overlay {
   position: fixed;
   top: 0;

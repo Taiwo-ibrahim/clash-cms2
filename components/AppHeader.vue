@@ -1,5 +1,5 @@
 <template>
-  <div class="relative">
+  <div class="relative nav-container">
     <nav>
       <div class="nav">
         <div class="left">

@@ -6,7 +6,7 @@
 
     <form
       @submit.prevent="submitProduct"
-      class="row"
+      class="row form__container"
       enctype="multipart/form-data"
     >
       <div class="left col-6">
@@ -348,6 +348,15 @@ const resetForm = () => {
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+}
+.form__container {
+  display: flex;
+
+  /* border: 2px solid green; */
+}
+.left, 
+.right {
+  /* width: 0%; */
 }
 
 .custom-file-uploads {
