@@ -36,11 +36,14 @@ definePageMeta({
   border-radius: 5px;
   padding: 16px;
   @media screen and (max-width: 500px) {
+    border: 2px solid black;
+    // margin-left: 40px;
     width: 100%;
     margin-inline: auto;
     display: flex;
     flex-direction: column;
     padding: 10px;
+    right: 0px;
   }
 }
 </style>

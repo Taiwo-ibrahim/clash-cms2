@@ -16,9 +16,26 @@ aside {
         }
     }
 
+
+
+        @include media('<phone') {
+            display: none;
+            width: 70%;
+            position: relative;
+            // z-index: z("aside");
+            // display: flex;
+            // border: px solid #008000
+
+            // &.show {
+            //     display: flex;
+            // }
+            
+        }
+
+}
+aside.show {
     @include media('<phone') {
-        display: none;
-        width: 70%;
+        display: flex;
     }
 }
 

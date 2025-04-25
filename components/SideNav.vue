@@ -1,5 +1,5 @@
 <template>
-  <aside>
+  <aside class="sidebar" :class="{ 'show': isOpen }" >
     <div>
       <NuxtLink
         to="/"
@@ -263,7 +263,17 @@
     </div>
   </aside>
 </template>
+
+
 <script setup>
+// const sidenav = useSidenav()
+
+// import { useSidenav } from '~/composables/useSidenav'
+
+// const { isShown } = useSidenav()
+
+// const isOpen = ref(false);
+
 definePageMeta({
   middleware: "auth",
 });
@@ -282,4 +292,15 @@ const signOut = () => {
   router.push("/auth");
 };
 </script>
-<style lang=""></style>
+
+
+<style scoped lang="scss">
+.sidenav {
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  /* your other styles */
+}
+.sidenav--visible {
+  transform: translateX(0);
+}
+</style>

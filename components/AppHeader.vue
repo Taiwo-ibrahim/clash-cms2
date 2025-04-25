@@ -1,6 +1,10 @@
+
 <template>
   <div class="relative nav-container">
-    <nav>
+    <nav class="">
+      <button class="hamburger" @click="">
+        Sidenav
+      </button>
       <div class="nav">
         <div class="left">
           <h6 class="welcome">Hi, {{ username }}</h6>
@@ -76,10 +80,16 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+// const [SideNav, = useState(false);
+
+// function toggleSidenav() {
+//   SideNav.value = !SideNav.value
+// }
+
 definePageMeta({
   middleware: "auth",
-});
+})
 export default {
   data() {
     return {
@@ -103,4 +113,23 @@ export default {
     },
   },
 };
+// import { ref, onMounted } from 'vue';
+
+// const username = ref("");
+
+// onMounted(() => {
+//   getUsernameFromToken();
+// });
+
+// function getUsernameFromToken() {
+//   const token = sessionStorage.getItem("token");
+//   const usernameFromStorage = sessionStorage.getItem("username");
+//   // Set the username from storage to the ref
+//   if (usernameFromStorage) {
+//     username.value = usernameFromStorage;
+//   } else {
+//     // Handle case when username is not in storage
+//     username.value = "Guest";
+//   }
+// }
 </script>
